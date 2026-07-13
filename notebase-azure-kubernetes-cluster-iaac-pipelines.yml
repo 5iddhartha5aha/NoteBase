@@ -16,11 +16,14 @@ steps:
   name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@1
+  inputs:
+    terraformVersion: '1.9.8'
 - task: TerraformCLI@2
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var ssh_public_key=$(publickey.secureFilePath)'
+    commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-mi-connection'
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
