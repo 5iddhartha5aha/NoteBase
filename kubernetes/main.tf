@@ -6,6 +6,7 @@ resource "azurerm_resource_group" "resource_group" {
 provider "azurerm" {
   //version = "~>2.0.0"
   features {}
+  resource_provider_registrations = "none"
 }
 
 data "azurerm_user_assigned_identity" "aks" {
