@@ -8,6 +8,11 @@ provider "azurerm" {
   features {}
 }
 
+data "azurerm_user_assigned_identity" "aks" {
+    name = "azdo-mi"
+    resource_group_name = "VisualStudioOnline-5C2B68CF0F154320A2939A709772A069"
+  }
+
 resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   name                = "${var.cluster_name}_${var.environment}"
   location            = azurerm_resource_group.resource_group.location
@@ -25,13 +30,13 @@ resource "azurerm_kubernetes_cluster" "terraform-k8s" {
   default_node_pool {
     name            = "agentpool"
     node_count      = var.node_count
-    vm_size         = "standard_b2ms"
+    vm_size         = "standard_B2ms"
     # vm_size         = "standard_d2as_v5"      CHANGE IF AN ERROR ARISES 
   }
 
-  service_principal {
-    client_id     = var.client_id
-    client_secret = var.client_secret
+  identity {
+    type = "UserAssigned"
+    identity_ids = [data.azurerm_user_assigned_identity.aks.id]
   }
 
   tags = {
