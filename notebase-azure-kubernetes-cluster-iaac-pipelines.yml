@@ -23,11 +23,19 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
-    commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
+    #commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-mi-connection'
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
     backendAzureRmStorageAccountName: 'storageacctsidxyz'
     backendAzureRmContainerName: 'storageacctsidcontainer'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@2
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
+    environmentServiceName: 'azure-mi-connection'
+    commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
     allowTelemetryCollection: true
