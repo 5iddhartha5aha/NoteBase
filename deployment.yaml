@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: notesapp
-          image: notesapp:latest
+          image: sidsaha897/notebase:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 1337
