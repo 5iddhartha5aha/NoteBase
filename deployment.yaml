@@ -38,18 +38,18 @@ spec:
                 secretKeyRef:
                   name: notesapp-secrets
                   key: UPSTASH_REDIS_REST_TOKEN
-          readinessProbe:
-            httpGet:
-              path: /api/notes
-              port: 1337
-            initialDelaySeconds: 15
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /api/notes
-              port: 1337
-            initialDelaySeconds: 30
-            periodSeconds: 20
+          # readinessProbe:
+          #   httpGet:
+          #     path: /api/notes
+          #     port: 1337
+          #   initialDelaySeconds: 15
+          #   periodSeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/notes
+          #     port: 1337
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 20
           resources:
             requests:
               cpu: 100m
