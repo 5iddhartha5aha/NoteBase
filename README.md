@@ -1,6 +1,6 @@
-# NotesApp
+# NotesBase
 
-NotesApp is a full-stack notes application built with React on the frontend and Express plus MongoDB on the backend. It lets users create, view, edit, delete, and pin notes, while also supporting search and sorting for easier organization.
+NotesBase is a full-stack notes application built with React on the frontend and Express plus MongoDB on the backend. It lets users create, view, edit, delete, and pin notes, while also supporting search and sorting for easier organization.
 
 ## Features
 
@@ -35,7 +35,7 @@ NotesApp is a full-stack notes application built with React on the frontend and 
 ## Project Structure
 
 ```text
-NotesApp/
+NotesBase/
 ├── backend/
 │   ├── src/
 │   │   ├── config/
