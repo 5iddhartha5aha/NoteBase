@@ -25,4 +25,8 @@ test('rate limiter falls back gracefully when Upstash is unavailable', async () 
 
   assert.equal(nextCalledWithError, undefined);
   assert.equal(res.statusCode, 200);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> a6095f994e3b3ea4f9fdd0dfe00b8acba063ca02
