@@ -27,7 +27,7 @@ stages:
         containerRegistry: 'sidsaha897-docker-hub'
         repository: 'sidsaha897/notebase'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: 'Dockerfile'
         tags: '$(tag)'
 #     - task: PublishBuildArtifacts@1
 #       inputs:
