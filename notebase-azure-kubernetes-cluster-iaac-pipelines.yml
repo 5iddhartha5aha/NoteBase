@@ -23,7 +23,7 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
-    #commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
+    commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-mi-connection'
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
