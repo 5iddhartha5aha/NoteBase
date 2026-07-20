@@ -46,3 +46,4 @@ steps:
     command: 'destroy'
     workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
     environmentServiceName: 'azure-mi-connection'
+    commandOptions: '-auto-approve -var ssh_public_key=$(publickey.secureFilePath)'
