@@ -32,13 +32,13 @@ steps:
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: true
 
-# - task: TerraformCLI@2
-#   inputs:
-#     command: 'apply'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
-#     environmentServiceName: 'azure-mi-connection'
-#     commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
-#     allowTelemetryCollection: true
+- task: TerraformCLI@2
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/kubernetes'
+    environmentServiceName: 'azure-mi-connection'
+    commandOptions: '-var ssh_public_key=$(publickey.secureFilePath)'
+    allowTelemetryCollection: true
 
 # remove this below when creating clusters again
 - task: TerraformCLI@2
